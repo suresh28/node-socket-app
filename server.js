@@ -4,13 +4,17 @@ const bodyParser=require('body-parser');
 
 
 var app=express();
-
+const port = process.env.PORT || '3000';
 
 app.use(bodyParser.json());
 
+app.get('/',(req,res)=>{
+    res.status(200).send('Hello Socket IO App');
+})
 
-app.listen('3000',()=>{
-    console.log('Server is started and listening on port 3000');
+
+app.listen(port,()=>{
+    console.log(`Server is started and listening on port ${port}`);
 })
 
 //module.exports.app = app;
